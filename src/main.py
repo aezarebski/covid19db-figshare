@@ -2,7 +2,10 @@ import psycopg2
 import pandas as pd
 from datetime import date
 
+# Should the evaluation be a dry-run in which no data is downloaded?
 DRY_RUN = True
+# Should the size of the download be limited?
+LIMIT = True
 
 CONN = psycopg2.connect(
     host='covid19db.org',
@@ -26,7 +29,7 @@ def fetch_and_record_table(table_name: str) -> None:
         The name of the table to use
     """
     assert table_name != "weather", "will not fetch the weather table with this function!"
-    sql_command = """SELECT * FROM {tn} LIMIT 2000 """.format(tn = table_name)
+    sql_command = """SELECT * FROM {tn}""".format(tn = table_name) + (" LIMIT 200 " if LIMIT else "")
     output_filepath = "data/{tn}.csv".format(tn = table_name)
     report_action(sql_command, output_filepath)
     if not DRY_RUN:
@@ -44,7 +47,7 @@ def fetch_and_record_weather(start_date: date, end_date: date) -> None:
         The day after the last day to record values from.
     """
     sql_command_template = """SELECT * FROM weather WHERE date >= '{start_date}' AND date < '{end_date}'"""
-    sql_command = sql_command_template.format(start_date=start_date.isoformat(), end_date=end_date.isoformat())
+    sql_command = sql_command_template.format(start_date=start_date.isoformat(), end_date=end_date.isoformat()) + (" LIMIT 200 " if LIMIT else "")
     output_filepath = "data/weather-{start_date}.csv".format(start_date = start_date.isoformat())
     report_action(sql_command, output_filepath)
     if not DRY_RUN:

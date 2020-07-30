@@ -36,4 +36,5 @@ python src/main.py
 
 **Note*** that by default the python script only does a dry run, to get it to
 actually carry out the download, the variable `DRY_RUN` needs to be set to
-`False` in the script.
+`False` in the script. There is also the `LIMIT` variable to declare whether or
+not to limit the size of the download.
