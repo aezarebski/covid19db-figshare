@@ -16,3 +16,24 @@ data repository for understanding the global impact of COVID-19. University of
 Oxford</em>, 2020.
 
 ---
+
+## Downloading
+
+Prior to running the download we set up a virtual environment with the correct
+packages installed with the following commands.
+
+```
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+To actually download the database run the following commands.
+
+```
+python src/main.py
+```
+
+**Note*** that by default the python script only does a dry run, to get it to
+actually carry out the download, the variable `DRY_RUN` needs to be set to
+`False` in the script.
