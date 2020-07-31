@@ -1,0 +1,17 @@
+Name,Type,Description
+gid,varchar,"Unique geographical ID, for more details see https://gadm.org/"
+country,varchar,English name for the country
+countrycode,varchar(3),ISO 3166-1 alpha-3 country codes
+countrycode_alpha2,varchar,ISO 3166-1 alpha-2 country codes
+adm_area_1,varchar,First-level administrative country subdivision
+adm_area_1_code,varchar,First-level administrative country code subdivision
+adm_area_2,varchar,Second-level administrative country subdivision
+adm_area_2_code,varchar,Second-level administrative country code subdivision
+adm_area_3,varchar,Third-level administrative country subdivision
+adm_area_3_code,varchar,Third-level administrative country code subdivision
+,,
+adm_level,integer,"0 - for countries level, 1 - for regions etc."
+latitude,float,Geographic coordinate of region's centroid
+longtitude,float,Geographic coordinate of region's centroid
+properties,json,Additional attributes describing region
+geometry,geometry,Polygon describing geographical area

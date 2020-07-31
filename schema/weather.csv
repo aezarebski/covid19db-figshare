@@ -1,0 +1,57 @@
+Name,Type,Description
+source,double,Data source
+date,date,Day of the statistics
+gid,array,"Unique geographical ID, for more details see gadm.org"
+country,varchar,English name for the country
+countrycode,varchar,ISO 3166-1 alpha-3 country codes
+adm_area_1,varchar,Level-1 administrative country subdivision
+adm_area_2,varchar,Level-2 administrative country subdivision
+adm_area_3,varchar,Level-3 administrative country subdivision
+samplesize,int,Number of grid points
+precipitation_max_avg,float,Average of the daily maximum precipitation
+precipitation_max_std,float,Standard deviation of the daily maximum precipitation
+precipitation_mean_avg,float,Average of the daily mean precipitation
+precipitation_mean_std,float,Standard deviation of the daily mean precipitation
+humidity_max_avg,float,Average of the daily maximum specific humidity
+humidity_max_std,float,Standard deviation of the daily maximum specific humidity
+humidity_mean_avg,float,Average of the daily mean specific humidity
+humidity_mean_std,float,Standard deviation of the daily mean specific humidity
+humidity_min_avg,float,Average of the daily minimum specific humidity
+humidity_min_std,float,Standard deviation of the daily minimum specific humidity
+sunshine_max_avg,float,Average of the daily maximum short wave radiation
+sunshine_max_std,float,Standard deviation of the daily maximum short wave radiation
+sunshine_mean_avg,float,Average of the daily minimum short wave radiation
+sunshine_mean_std,float,Standard deviation of the daily minimum short wave radiation
+temperature_max_avg,float,Average of the daily maximum temperature
+temperature_max_std,float,Standard deviation of the daily maximum temperature
+temperature_mean_avg,float,Average of the daily mean temperature
+temperature_mean_std,float,Standard deviation of the daily mean temperature
+temperature_min_avg,float,Average of the daily minimum temperature
+temperature_min_std,float,Standard deviation of the daily minimum temperature
+windgust_max_avg,float,Average of the daily maximum wind gust
+windgust_max_std,float,Standard deviation of the daily maximum wind gust
+windgust_mean_avg,float,Average of the daily mean wind gust
+windgust_mean_std,float,Standard deviation of the daily mean wind gust
+windgust_min_avg,float,Average of the daily minimum wind gust
+windgust_min_std,float,Standard deviation of the daily minimum wind gust
+windspeed_max_avg,float,Average of the daily maximum wind speed
+windspeed_max_std,float,Standard deviation of the daily maximum wind speed
+windspeed_mean_avg,float,Average of the daily mean wind speed
+windspeed_mean_std,float,Standard deviation of the daily mean wind speed
+windspeed_min_avg,float,Average of the daily minimum wind speed
+windspeed_min_std,float,Standard deviation of the daily minimum wind speed
+cloudaltitude_max_valid,float,Percentage of points with a valid value of cloudaltitude_max
+cloudaltitude_max_avg,float,Average of the daily maximum cloud base altitude
+cloudaltitude_max_std,float,Standard deviation of the daily maximum cloud base altitude
+cloudaltitude_min_valid,float,Percentage of points with a valid value of cloudaltitude_min
+cloudaltitude_min_avg,float,Average of the daily minimum cloud base altitude
+cloudaltitude_min_std,float,Standard deviation of the daily minimum cloud base altitude
+cloudaltitude_mean_valid,float,Percentage of points with a valid value of cloudaltitude_mean
+cloudaltitude_mean_avg,float,Average of the daily mean cloud base altitude
+cloudaltitude_mean_std,float,Standard deviation of the daily mean cloud base altitude
+cloudfrac_max_avg,float,Average of the daily maximum cloud area fraction
+cloudfrac_max_std,float,Standard deviation of the daily maximum cloud area fraction
+cloudfrac_min_avg,float,Average of the daily minimum cloud area fraction
+cloudfrac_min_std,float,Standard deviation of the daily minimum cloud area fraction
+cloudfrac_mean_avg,float,Average of the daily mean cloud area fraction
+cloudfrac_mean_std,float,Standard deviation of the daily mean cloud area fraction

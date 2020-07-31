@@ -1,0 +1,16 @@
+Name,Type,Description
+source,varchar,Data source
+date,date,Day of the statistics
+country,array,"Unique geographical ID, for more details see https://gadm.org/"
+countrycode,varchar,English name for the country
+adm_area_1,varchar(3),ISO 3166-1 alpha-3 country codes
+adm_area_2,varchar,First-level administrative country subdivision
+adm_area_3,varchar,Second-level administrative country subdivision
+tested,varchar,Third-level administrative country subdivision
+confirmed,int,Number of people tested [cumulative]
+recovered,int,Number of confirmed cases [cumulative]
+dead,int,Number of deaths [cumulative]
+hospitalised,int,Number of confirmed who recovered [cumulative]
+hospitalised_icu,int,Number of confirmed who are/have been hospitalised [cumulative]
+quarantined,int,Number of confirmed who are/have been in the intensive care [cumulative]
+,int,Number of confirmed with home quarantine [cumulative]

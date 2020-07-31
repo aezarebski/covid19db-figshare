@@ -1,0 +1,18 @@
+Name,Type,Description
+source,varchar,Data source
+date,date,Day of the statistics
+country,array,"Unique geographical ID, for more details see https://gadm.org/"
+countrycode,varchar,English name for the country
+adm_area_1,varchar(3),ISO 3166-1 alpha-3 country codes
+adm_area_2,varchar,First-level administrative country subdivision
+adm_area_3,varchar,Second-level administrative country subdivision
+transit_stations,varchar,Third-level administrative country subdivision
+residential,float,"Mobility trends reported by Google for places like public transport hubs such as subway, bus, and train stations"
+workplace,float,Mobility trends reported by Google for places of residence
+parks,float,Mobility trends reported by Google for places of work
+retail_recreation,float,"Mobility trends reported by Google for places like local parks, national parks, public beaches, marinas, dog parks, plazas, and public gardens"
+grocery_pharmacy,float,"Mobility trends reported Google for places like restaurants, cafes, shopping centers, theme parks, museums, libraries, and movie theaters"
+gid,float,"Mobility trends reported by Google for places like grocery markets, food warehouses, farmers markets, specialty food shops, drug stores, and pharmacies"
+transit,float,The change in volume reported by Apple of people taking public transit in their communities
+walking,float,The change in volume reported by Apple of people walking in their communitie
+driving,float,The change in volume reported by Apple of people driving taking public transit in their communities

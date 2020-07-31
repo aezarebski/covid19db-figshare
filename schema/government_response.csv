@@ -1,0 +1,47 @@
+Name,Type,Description
+source,varchar,Data source
+date,date,Day of the statistics
+gid,array,"Unique geographical ID, for more details see https://gadm.org/"
+country,varchar,English name for the country
+countrycode,varchar(3),ISO 3166-1 alpha-3 country codes
+adm_area_1,varchar,First-level administrative country subdivision
+adm_area_2,varchar,Second-level administrative country subdivision
+adm_area_3,varchar,Third-level administrative country subdivision
+c1_school_closing,int,Record closings of schools and universities
+c1_flag,int,Binary flag for geographic scope
+c2_workplace_closing,int,Record closings of workplaces
+c2_flag,int,Binary flag for geographic scope
+c3_cancel_public_events,int,Record cancelling public events
+c3_flag,int,Binary flag for geographic scope
+c4_restrictions_on_gatherings,int,Record limits on private gatherings
+c4_flag,int,Binary flag for geographic scope
+c5_close_public_transport,int,Record closing of public transport
+c5_flag,int,Binary flag for geographic scope
+c6_stay_at_home_requirements,int,"Record orders to ""shelter-in-place"" and otherwise confine to the home"
+c6_flag,int,Binary flag for geographic scope
+c7_restrictions_on_internal_movement,int,Record restrictions on internal movement between cities/regions
+c7_flag,int,Binary flag for geographic scope
+c8_international_travel_controls,int,"Record restrictions on international travel. Note: this records policy for foreign travellers, not citizens"
+e1_income_support,int,Record if the government is providing direct cash payments to people who lose their jobs or cannot work. Note: only includes payments to firms if explicitly linked to payroll/salaries
+e1_flag,int,Binary flag for geographic scope
+e2_debtcontract_relief,int,"Record if the government is freezing financial obligations for households (eg stopping loan repayments, preventing services like water from stopping, or banning evictions)"
+e3_fiscal_measures,float,Announced economic stimulus spending. Note: only record amount additional to previously announced spendings
+e4_international_support,float,Announced offers of Covid-19 related aid spending to other countries. Note: only record amount additional to previously announced spending
+h1_public_information_campaigns,int,Record presence of public info campaigns
+h1_flag,int,Binary flag for geographic scope
+h2_testing_policy,int,Record government policy on who has access to testing. Note: this records policies about testing for current infection (PCR tests) not testing for immunity (antibody test)
+h3_contact_tracing,int,Record government policy on contact tracing after a positive diagnosis
+h4_emergency_investment_in_healthcare,float,"Announced short term spending on healthcare system, e.g. hospitals, masks, etc. Note: only record amount additional to previously announced spending"
+h5_investment_in_vaccines,float,Announced public spending on Covid-19 vaccine development. Note: only record amount additional to previously announced spending
+m1_wildcard,varchar,Record policy announcements that do not fit anywhere else
+stringency_index,float,"Calculated as a function of the individual indicators, see https://github.com/OxCGRT/covid-policy-tracker/blob/master/documentation/index_methodology.md#dealing-with-gaps-in-the-data-for-display-purposes"
+stringency_indexfordisplay,float,"Calculated as a function of the individual indicators, see https://github.com/OxCGRT/covid-policy-tracker/blob/master/documentation/index_methodology.md#dealing-with-gaps-in-the-data-for-display-purposes"
+stringency_legacy_index,float,"Calculated as a function of the individual indicators, see https://github.com/OxCGRT/covid-policy-tracker/blob/master/documentation/index_methodology.md#dealing-with-gaps-in-the-data-for-display-purposes"
+stringency_legacy_indexfordisplay,float,"Calculated as a function of the individual indicators, see https://github.com/OxCGRT/covid-policy-tracker/blob/master/documentation/index_methodology.md#dealing-with-gaps-in-the-data-for-display-purposes"
+government_response_index,float,"Calculated as a function of the individual indicators, see https://github.com/OxCGRT/covid-policy-tracker/blob/master/documentation/index_methodology.md#dealing-with-gaps-in-the-data-for-display-purposes"
+government_response_index_for_display,float,"Calculated as a function of the individual indicators, see https://github.com/OxCGRT/covid-policy-tracker/blob/master/documentation/index_methodology.md#dealing-with-gaps-in-the-data-for-display-purposes"
+containment_health_index,float,"Calculated as a function of the individual indicators, see https://github.com/OxCGRT/covid-policy-tracker/blob/master/documentation/index_methodology.md#dealing-with-gaps-in-the-data-for-display-purposes"
+containment_health_index_for_display,float,"Calculated as a function of the individual indicators, see https://github.com/OxCGRT/covid-policy-tracker/blob/master/documentation/index_methodology.md#dealing-with-gaps-in-the-data-for-display-purposes"
+economic_support_index,float,"Calculated as a function of the individual indicators, see https://github.com/OxCGRT/covid-policy-tracker/blob/master/documentation/index_methodology.md#dealing-with-gaps-in-the-data-for-display-purposes"
+economic_support_index_for_display,float,"Calculated as a function of the individual indicators, see https://github.com/OxCGRT/covid-policy-tracker/blob/master/documentation/index_methodology.md#dealing-with-gaps-in-the-data-for-display-purposes"
+actions,jsonb,Raw response from Covid Tracker API Covid Tracker API containing all above indicators with full description stored in JSON format
