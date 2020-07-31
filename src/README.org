@@ -1,3 +1,7 @@
+* Example visualisation
+
+[[./.demo-combination-plot.png]]
+
 We need some libraries to generate the figure, these are all pretty standard and
 can be installed from CRAN. Installing libraries for spatial statistics can be
 fiddly so you will need to pay attention to any messages that are printed out
