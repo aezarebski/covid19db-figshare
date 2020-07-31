@@ -17,6 +17,11 @@ Oxford</em>, 2020.
 
 ---
 
+## Data schemas
+
+See the `schema` directory for a listing of all the table schemas in both human
+and machine readable form.
+
 ## Downloading
 
 Prior to running the download we set up a virtual environment with the correct
@@ -38,3 +43,7 @@ python src/main.py
 actually carry out the download, the variable `DRY_RUN` needs to be set to
 `False` in the script. There is also the `LIMIT` variable to declare whether or
 not to limit the size of the download.
+
+## Usage example
+
+See the `src/README.org` file for an example of the usage of these data.
