@@ -1,11 +1,12 @@
 # Oxford COVID-19 (OxCOVID19) Database 
 
 The files contained in this directory are a snapshot of the database described
-in **MANUSCRIPT** as of **DATE**. The `data` directory contains the actual data
-and the `src` directory the code to generate this snapshot. A complete listing
-of the variables can be found in **MANUSCRIPT**. Since the OxCOVID19 Database
-draws from multiple data sources there are different licenses for different
-tables, please see the **WEBSITE** page for additional details.
+in **MANUSCRIPT** as of **31-07-2020**. The `data` directory contains the actual
+data and the `src` directory the code to generate this snapshot. A complete
+listing of the variables can be found in **MANUSCRIPT**. Since the OxCOVID19
+Database draws from multiple data sources there are different licenses for
+different tables, please see https://covid19.eng.ox.ac.uk/ for additional
+details.
 
 ---
 
@@ -46,7 +47,7 @@ not to limit the size of the download.
 
 ## Usage example
 
-See the `src/README.org** file for an example of the usage of these data.
+See the `src/README.org` file for an example of the usage of these data.
 
 ## Authors
 
