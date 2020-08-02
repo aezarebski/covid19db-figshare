@@ -270,11 +270,21 @@ do
 done
 #+end_src
 
+The weather data is plotted by another R script so we need to include the
+libraries again.
+
+#+begin_src R :tangle demo-weather-plot.R
+library(ggplot2)
+library(magrittr)
+library(dplyr)
+library(reshape2)
+#+end_src
+
 With all of the Italian weather data in a single file, we can set up a data
 frame of the temperature and the *ABSOLUTE/RELATIVE* humidity. The temperature
 is initially in Kelvin, so we subtract 273.15 to get it in Celsius.
 
-#+begin_src R :tangle demo-plot.R
+#+begin_src R :tangle demo-weather-plot.R
 weather_plot_df <- read.csv("italy.csv",
                             header = TRUE,
                             stringsAsFactors = FALSE) %>%
@@ -289,7 +299,7 @@ weather_plot_df <- read.csv("italy.csv",
 Finally we generate the visualisation grouping the time series by administrative
 area level 1 and faceting by the two variables.
 
-#+begin_src R :tangle demo-plot.R
+#+begin_src R :tangle demo-weather-plot.R
 facet_labels <- c(temperature = "Temperature (Celsius)",
                   humidity = "Humidity (XXX)")
 
@@ -303,7 +313,7 @@ weather_fig <- ggplot(weather_plot_df,
     theme_bw()
 
 ggsave("demo-weather-plot.pdf",
-       g_final,
+       weather_fig,
        width = 2 * 14.8,
        height = 2 * 10.5,
        units = "cm")
