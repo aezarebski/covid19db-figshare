@@ -23,7 +23,10 @@ weather_fig <- ggplot(weather_plot_df,
                scales = "free_y",
                labeller = labeller(variable = facet_labels)) +
     labs(x = "Date", y = NULL) +
-    theme_bw()
+    theme_bw() +
+    theme(panel.grid.major.x = element_blank(),
+          panel.grid.minor.x = element_blank(),
+          panel.grid.minor.y = element_blank())
 
 ggsave("demo-weather-plot.pdf",
        weather_fig,
