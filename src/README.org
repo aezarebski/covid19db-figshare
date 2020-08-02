@@ -2,6 +2,8 @@
 
 [[./.demo-combination-plot.png]]
 
+** Setting up
+
 We need some libraries to generate the figure, these are all pretty standard and
 can be installed from CRAN. Installing libraries for spatial statistics can be
 fiddly so you will need to pay attention to any messages that are printed out
@@ -39,6 +41,8 @@ map_outline_thickness <- 0.5
 map_plot_background <- element_rect(colour = "#252525",
                                     fill = "#FFFFFF")
 #+end_src
+
+** Spatial data
 
 From the GADM interface we download the geometry of Italy at an /admin1/ level
 for the actual visualisation and at an /admin0/ level so we can draw the outline
@@ -149,6 +153,8 @@ g_maps <- plot_grid(g_maps_without_legend,
                     rel_widths = c(1,0.3))
 #+end_src
 
+** Time series data
+
 If we aggregate over space, we can generate time series for the whole of Italy
 to get a different view into the epidemic's progression.
 
@@ -219,6 +225,8 @@ g_ts <- ggplot(plot_ts_df, aes(x = date, y = value)) +
     )
 #+end_src
 
+** Putting it all together
+
 Finally, we need to combine these figures into one and save the result. 
 
 #+begin_src R :tangle demo-plot.R
@@ -241,4 +249,62 @@ and then convert it with the following command.
 
 #+begin_src sh
 convert -density 300 out/demo-combination-plot.pdf -quality 100 out/demo-combination-plot.png
+#+end_src
+
+** Weather time series
+
+The weather data is handelled slightly differently because the data set is large
+enough to make it difficult to hold all of it in memory at the same time so it
+is split across several files. To remedy this situation, we will =grep= out the
+relevant records across each of the files and combine the weather data into a
+single =italy.csv= file. 
+
+#+begin_src sh :tangle filter-italy.sh 
+# <filter-italy.sh>
+
+head -n 1 data/weather-2020-jan.csv > italy.csv
+
+for month in jan feb mar apr may jun;
+do
+    cat data/weather-2020-$month.csv | grep "Italy" >> italy.csv
+done
+#+end_src
+
+With all of the Italian weather data in a single file, we can set up a data
+frame of the temperature and the *ABSOLUTE/RELATIVE* humidity. The temperature
+is initially in Kelvin, so we subtract 273.15 to get it in Celsius.
+
+#+begin_src R :tangle demo-plot.R
+weather_plot_df <- read.csv("italy.csv",
+                            header = TRUE,
+                            stringsAsFactors = FALSE) %>%
+    filter(country == "Italy", adm_area_2 == "NaN") %>%
+    rename(humidity = humidity_mean_avg) %>%
+    mutate(date = as.Date(date, format = "%Y-%m-%d"),
+           temperature = temperature_mean_avg - 273.15) %>%
+    select(date, adm_area_1, humidity, temperature) %>%
+    melt(id.vars = c("date", "adm_area_1"))
+#+end_src
+
+Finally we generate the visualisation grouping the time series by administrative
+area level 1 and faceting by the two variables.
+
+#+begin_src R :tangle demo-plot.R
+facet_labels <- c(temperature = "Temperature (Celsius)",
+                  humidity = "Humidity (XXX)")
+
+weather_fig <- ggplot(weather_plot_df,
+                      aes(x = date, y = value, group = adm_area_1)) +
+    geom_line() +
+    facet_wrap(~variable,
+               scales = "free_y",
+               labeller = labeller(variable = facet_labels)) +
+    labs(x = "Date", y = NULL) +
+    theme_bw()
+
+ggsave("demo-weather-plot.pdf",
+       g_final,
+       width = 2 * 14.8,
+       height = 2 * 10.5,
+       units = "cm")
 #+end_src
