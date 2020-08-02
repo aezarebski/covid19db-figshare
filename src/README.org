@@ -253,6 +253,8 @@ convert -density 300 out/demo-combination-plot.pdf -quality 100 out/demo-combina
 
 ** Weather time series
 
+[[./.demo-weather-plot.png]]
+
 The weather data is handelled slightly differently because the data set is large
 enough to make it difficult to hold all of it in memory at the same time so it
 is split across several files. To remedy this situation, we will =grep= out the
