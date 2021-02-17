@@ -34,7 +34,10 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-To actually download the database run the following commands.
+Recall that you can use `python --version` to check which version of python you
+are running. If the virtual environment has been set up correctly you should
+have a version `3.x` when it has been activated. To actually download the
+database run the following command.
 
 ```
 python src/main.py
